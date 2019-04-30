@@ -1,5 +1,6 @@
 import React from 'react'
 import Helper from '../../../Helpers/utils';
+import { isAbsolute } from 'path';
 
 const report = (props) => {
     let parms = Object.keys( props.reportParms)
@@ -19,6 +20,7 @@ const report = (props) => {
         height: 'calc(100vh - 95px)',
         width:'100%'
     };
+
 
     return (
         <div>
