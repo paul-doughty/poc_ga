@@ -16,7 +16,7 @@ const report = (props) => {
         display: 'block',
         background: '#000',
         border: 'none',
-        height: 'calc(100vh - 140px)',
+        height: 'calc(100vh - 95px)',
         width:'100%'
     };
 

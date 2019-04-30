@@ -7,7 +7,7 @@ import WFChart from '../WFChart/WFChart';
 
 
 const Widget = (props) => (
-    <div style={{padding: '10px'}}>
+    <div style={{padding: '5px'}}>
         <WFChart reportData={props.reportData}/>
     </div>
 );
