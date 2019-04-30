@@ -8,8 +8,8 @@ import Typography from '@material-ui/core/Typography';
 const styles = {
   root: {
     flexGrow: 1,
-    paddingLeft:'10px',
-    paddingRight:'10px'
+    paddingLeft:'5px',
+    paddingRight:'5px'
 
   },
 };

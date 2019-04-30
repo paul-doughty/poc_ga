@@ -7,7 +7,7 @@ import Filter from '../../components/Filter/Filter';
 
 const workaround = {
     display: 'none',
-    height: 'calc(100vh - 95px)',
+    height: '100vh',
     width: '100%',
     position: 'absolute',
     bottom: '0'
@@ -41,17 +41,17 @@ class Layout extends Component {
             <Aux>
                 <div className="workaround" style={workaround} />
                 <AppBar />
-                <Grid container spacing={8} style={{width: 'calc(100%)',margin:'0px'}}>
-                    <Grid item lg={4}>
-                        <Widget reportData={this.state.reports[0]}/>
+                    <Grid container spacing={8} style={{width: '100%',margin:'0px'}}>
+                        <Grid item lg={4}>
+                            <Widget reportData={this.state.reports[0]}/>
+                        </Grid>
+                        <Grid item lg={4}>
+                            <Widget reportData={this.state.reports[1]} />
+                        </Grid>
+                        <Grid item lg={4}>
+                            <Widget reportData={this.state.reports[0]} />
+                        </Grid>              
                     </Grid>
-                    <Grid item lg={4}>
-                        <Widget reportData={this.state.reports[1]} />
-                    </Grid>
-                    <Grid item lg={4}>
-                        <Widget reportData={this.state.reports[0]} />
-                    </Grid>              
-                </Grid>
                 <Filter />
             </Aux>
         );

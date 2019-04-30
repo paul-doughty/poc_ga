@@ -1,6 +1,5 @@
 import React from 'react'
 import Helper from '../../../Helpers/utils';
-import { isAbsolute } from 'path';
 
 const report = (props) => {
     let parms = Object.keys( props.reportParms)
@@ -15,9 +14,9 @@ const report = (props) => {
     
     const iframeStyle = {
         display: 'block',
-        background: '#000',
+        background: '#fff',
         border: 'none',
-        height: 'calc(100vh - 95px)',
+        height: 'calc(100vh - 72px)',
         width:'100%'
     };
 
