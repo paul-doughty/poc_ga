@@ -20,6 +20,11 @@ class Filter extends Component {
  
     componentDidMount() {
         Helper.dragElement(this.filter.current);
+        const filt = this.filter.current;
+        window.addEventListener("resize", function(event){
+            filt.style.left = '10px';
+            filt.style.top = '0px';
+        });
     }
     
 
