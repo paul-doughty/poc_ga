@@ -85,6 +85,7 @@ function dragElement(elmnt) {
       // set the element's new position:
       elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
       elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+      elmnt.style.opacity=0.3;
     }
   
     function closeDragElement() {
@@ -95,6 +96,7 @@ function dragElement(elmnt) {
       x.forEach(function(element){
           element.style.display = "none";
       });
+      elmnt.style.opacity=1;
     }
   }
 

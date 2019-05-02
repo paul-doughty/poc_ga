@@ -11,8 +11,13 @@ const workaround = {
     width: '100%',
     position: 'absolute',
     bottom: '0'
-}
+};
 
+const appBar = {
+      flexGrow: 1,
+      paddingLeft:'5px',
+      paddingRight:'5px'
+};
 class Layout extends Component {
 
     state = {
@@ -40,7 +45,7 @@ class Layout extends Component {
         return (
             <Aux>
                 <div className="workaround" style={workaround} />
-                <AppBar />
+                <AppBar BarColorClass="default" appBarClass={appBar}>Proof of concept</AppBar>
                     <Grid container spacing={8} style={{width: '100%',margin:'0px'}}>
                         <Grid item lg={4}>
                             <Widget reportData={this.state.reports[0]}/>

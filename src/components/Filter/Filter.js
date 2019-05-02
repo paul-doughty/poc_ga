@@ -1,16 +1,21 @@
 import React, {Component} from 'react';
-import Button from '@material-ui/core/Button';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import AppBar from '../AppBar/AppBar';
 import Helper from '../../Helpers/utils';
+import Card from '@material-ui/core/Card';
+
 
 const style = {
         position: 'absolute',
-        padding: '10px',
+        padding: '0px',
         cursor: 'move',
         zindex: '10',
         backgroundcolor: '#2196F3',
         color: '#fff',
         top: '0',
-        right: '10px'        
+        right: '0px',
+        width: '200px'     
 }
 class Filter extends Component {
     constructor(props) {
@@ -22,18 +27,25 @@ class Filter extends Component {
         Helper.dragElement(this.filter.current);
         const filt = this.filter.current;
         window.addEventListener("resize", function(event){
-            filt.style.left = '10px';
-            filt.style.top = '0px';
+            filt.style.left = '-1px'; // ccaters for padding
+            filt.style.top = '68px';
         });
     }
     
+    expandHandler = event => {
+        alert('expanded');
+    }
 
     render() {
         return(
             <div ref={this.filter} style={style}>
-                <Button variant="contained" size="large" color="primary">
-                    Filters
-                </Button>
+                <AppBar BarColorClass="primary" expandCapable={true} expandHandler={this.expandHandler}>
+                Filters
+                </AppBar>
+
+                <Card raised={true} style={{width: '200px',height:'300px', borderRadius:'0'}}>
+                    This is the filter area
+                </Card>
             </div>
         )
     }

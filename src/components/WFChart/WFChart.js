@@ -5,7 +5,6 @@ import Report from './Report/Report';
 
 const WFChart = (props) => {
 
-    console.log(props);
     const reportName = props.reportData.name;
     const reportApp = props.reportData.app;
     const reportParms = props.reportData.parms;
