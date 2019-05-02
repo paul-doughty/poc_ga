@@ -23,6 +23,11 @@ class Filter extends Component {
         this.filter = React.createRef();
     }
  
+    state = {
+        expanded: true,
+        cardHeight: '300px'
+    }
+
     componentDidMount() {
         Helper.dragElement(this.filter.current);
         const filt = this.filter.current;
@@ -33,17 +38,21 @@ class Filter extends Component {
     }
     
     expandHandler = event => {
-        alert('expanded');
+        if(this.state.expanded)
+            this.setState({expanded: false,cardHeight: '0px'});
+        else
+            this.setState({expanded: true,cardHeight: '300px'});
     }
 
+    //max-height: 500px;transition: max-height 0.25s ease-in;
     render() {
         return(
             <div ref={this.filter} style={style}>
-                <AppBar BarColorClass="primary" expandCapable={true} expandHandler={this.expandHandler}>
+                <AppBar BarColorClass="primary" expandCapable={true} expandHandler={this.expandHandler} expanded={this.state.expanded}>
                 Filters
                 </AppBar>
 
-                <Card raised={true} style={{width: '200px',height:'300px', borderRadius:'0'}}>
+                <Card raised={true} style={{width: '200px',height:this.state.cardHeight, transition: 'height 0.25s ease-in', borderRadius:'0'}}>
                     This is the filter area
                 </Card>
             </div>

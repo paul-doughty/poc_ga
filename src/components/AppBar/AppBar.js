@@ -1,32 +1,48 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, {Component} from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import ExpandMore from '@material-ui/icons/ExpandMoreTwoTone';
+import ExpandLess from '@material-ui/icons/ExpandLessTwoTone';
 
-
-
-function SimpleAppBar(props) {
-
-  return (
-    <div style={props.appBarClass}>
-      <AppBar position="static" color={props.BarColorClass}>
-        <Toolbar>
-          <Typography variant="h6" color="inherit">
-            {props.children}
-          </Typography>
-          <Typography variant="h6" color="inherit">
-            <ExpandMore onClick={props.expandHandler} />
-          </Typography>
-        </Toolbar>
-      </AppBar>
-    </div>
-  );
+const accordionIcon = {
+  position: 'absolute',
+  right: '0px',
+  cursor: 'pointer', 
+  top: '40px'
 }
 
-SimpleAppBar.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+const SimpleAppBar = (props) => {
+      let expandedIcon= null;
+      switch(props.expanded){
+
+        case (true):
+          expandedIcon = <ExpandLess onClick={props.expandHandler} />;
+          break;
+        
+        case (false):
+          expandedIcon = <ExpandMore onClick={props.expandHandler} />;
+          break;
+
+        default:
+          expandedIcon= null;
+      }
+
+      return (
+        <div style={props.appBarClass}>
+          <AppBar position="static" color={props.BarColorClass}>
+            <Toolbar>
+              <Typography variant="h6" color="inherit">
+                {props.children}
+              </Typography>
+              <Typography variant="h6" color="inherit" style={accordionIcon}>
+                {expandedIcon}
+              </Typography>
+            </Toolbar>
+          </AppBar>
+        </div>
+      );
+
+}
 
 export default SimpleAppBar;
