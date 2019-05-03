@@ -12,11 +12,12 @@ function server(requestType) {
         default:
             /* If local then bypass */
             if(document.domain === "localhost") {
-                return "ibi_apps"
+                return "/ibi_apps"
             } else {
                 portnr = (document.location.port !== "") ? ":"+document.location.port  : "";
                 serverref = document.domain+portnr;
                 webapp    = document.location.toString().split("/")[3] ;
+                console.log('docloc',document.location.toString());
                 return document.location.protocol + '/'+serverref + '/'+webapp;
             }
         }
@@ -30,11 +31,14 @@ function server(requestType) {
  */
 function getWFurl(focexec,folder,bipPath){
         var rand = Math.random();
-        var servlet    =  server() + '/run.bip?BIP_REQUEST_TYPE=BIP_RUN';
+        
+        var servlet    =  server() +'/run.bip?BIP_REQUEST_TYPE=BIP_RUN';
         folder     = "&BIP_folder=" + bipPath + folder;
         var wf_ex      = '&BIP_item=' + focexec;
         var fullURL    = servlet + folder + wf_ex + "&IBI_random="+rand;
 
+        console.log('server',server()); 
+        console.log('fullURL',fullURL); 
         return fullURL;
     }
 
