@@ -10,7 +10,7 @@ const WFChart = (props) => {
     const reportParms = props.reportData.parms;
 
     return (
-        <Card raised={true} style={{minWidth: '370px',minHeight:'calc(100vh - 72px)', borderRadius:'0'}}>
+        <Card raised={true} style={{minHeight:'calc(100vh - 72px)', borderRadius:'0'}}>
             <Report
                 reportName={reportName}
                 reportApp={reportApp}
