@@ -93,14 +93,14 @@ class Layout extends Component {
                 <div className="workaround" style={workaround} />
                 <AppBar BarColorClass="default" appBarClass={appBar}>Proof of concept</AppBar>
                 <div style={{padding: '5px 5px 0px 5px'}}>
-                    <div class="mdc-layout-grid__inner mdc-layout-grid__cell--span-12-mobile">
-                        <div class="mdc-layout-grid__cell demo-cell">
+                    <div class="mdc-layout-grid__inner">
+                        <div class="mdc-layout-grid__cell demo-cell mdc-layout-grid__cell--span-12-tablet">
                             <Widget reportData={this.state.reports[0]}/>
                         </div>
-                        <div class="mdc-layout-grid__cell demo-cell">
+                        <div class="mdc-layout-grid__cell demo-cell mdc-layout-grid__cell--span-12-tablet">
                             <Widget reportData={this.state.reports[1]} />
                         </div>
-                        <div class="mdc-layout-grid__cell demo-cell">
+                        <div class="mdc-layout-grid__cell demo-cell mdc-layout-grid__cell--span-12-tablet">
                             <Widget reportData={this.state.reports[0]} />
                         </div>
                     </div>
