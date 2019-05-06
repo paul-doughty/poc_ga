@@ -2,7 +2,7 @@
   "name": "poc",
   "version": "0.1.0",
   "private": true,
-  "homepage": "./approot/test",
+  "homepage": "./approot/a_component_library/poc_demo1",
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

@@ -25,14 +25,14 @@ class Layout extends Component {
         reports: [
             {
                 name: "car.fex",
-                app: "test",
+                app: "a_component_library%252Fpoc_demo1%252Freports",
                 parms: {
                     COUNTRY:"FOC_NONE"
                 }
             },
             {
                 name: "car2.fex",
-                app: "test",
+                app: "a_component_library%252Fpoc_demo1%252Freports",
                 parms: {
                     COUNTRY:"FOC_NONE"
                 }
