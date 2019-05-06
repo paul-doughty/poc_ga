@@ -3,24 +3,10 @@
  * @param {String} requestType 
  */
 function server(requestType) {
-    var portnr,webapp;
-    switch(requestType){
-        case "server":
-            portnr = (document.location.port !== "") ? ":"+document.location.port  : "";
-            return document.domain+portnr;
-
-        default:
-            /* If local then bypass */
-            if(document.domain === "localhost") {
-                return "/ibi_apps"
-            } else {
-                //portnr = (document.location.port !== "") ? ":"+document.location.port  : "";
-                //serverref = document.domain+portnr;
-                webapp    = document.location.toString().split("/")[3] ;
-
-                return webapp;
-                //document.location.protocol + '/'+serverref + '/'+webapp;
-            }
+          if(document.domain === "localhost") {
+            return "/ibi_apps"
+        } else {
+          return '.';
         }
     }
 
@@ -33,7 +19,7 @@ function server(requestType) {
 function getWFurl(focexec,folder,bipPath){
         var rand = Math.random();
         
-        var servlet    =  './run.bip?BIP_REQUEST_TYPE=BIP_RUN';
+        var servlet    =  server() + '/run.bip?BIP_REQUEST_TYPE=BIP_RUN';
         folder     = "&BIP_folder=" + bipPath + folder;
         var wf_ex      = '&BIP_item=' + focexec;
         var fullURL    = servlet + folder + wf_ex + "&IBI_random="+rand;

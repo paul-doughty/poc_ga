@@ -2,8 +2,10 @@ import React, {Component} from 'react';
 import Aux from '../Aus/Aus';
 import AppBar from '../../components/AppBar/AppBar';
 import Widget from '../../components/Widget/Widget';
-import Grid from '@material-ui/core/Grid';
 import Filter from '../../components/Filter/Filter';
+import WFChart from '../../components/WFChart/WFChart';
+import GA from '../../components/GoogleA/GoogleAnalytics';
+
 import "@material/layout-grid/dist/mdc.layout-grid.css";
 
 const workaround = {
@@ -23,13 +25,6 @@ class Layout extends Component {
 
     state = {
         reports: [
-            {
-                name: "car.fex",
-                app: "a_component_library%252Fpoc_demo1%252Freports",
-                parms: {
-                    COUNTRY:"FOC_NONE"
-                }
-            },
             {
                 name: "car2.fex",
                 app: "a_component_library%252Fpoc_demo1%252Freports",
@@ -57,6 +52,43 @@ class Layout extends Component {
         });
         this.setState({reports:newArray }) ;
     }
+
+    render() {
+
+        return (
+            <Aux>
+                <div className="workaround" style={workaround} />
+                <AppBar BarColorClass="default" appBarClass={appBar}>Proof of concept</AppBar>
+                <div style={{padding: '5px 5px 0px 5px'}}>
+                    <div className="mdc-layout-grid__inner">
+                        <div className="mdc-layout-grid__cell demo-cell mdc-layout-grid__cell--span-6-desktop">
+                            <Widget height='100' adjust='72'>
+                                <WFChart reportData={this.state.reports[0]}/>
+                            </Widget>
+                        </div>
+                        <div className="mdc-layout-grid__cell demo-cell mdc-layout-grid__cell--span-6-desktop">
+                            <div className="mdc-layout-grid__inner">
+                                <div className="mdc-layout-grid__cell demo-cell mdc-layout-grid__cell--span-12-desktop">
+                                    <Widget height='52' adjust='67'>
+                                        <GA unique='1'/>
+                                    </Widget>
+                                </div>
+                                <div className="mdc-layout-grid__cell demo-cell mdc-layout-grid__cell--span-12-desktop">
+                                    <Widget height='52' adjust='67'>
+                                        
+                                    </Widget>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <Filter selectItems={this.state.items} change={this.filterChangeHandler}/>
+            </Aux>
+        );
+    }
+
+}
+export default Layout;
 
 /*
     <div style={{padding: '5px 5px 0px 5px'}}>
@@ -86,29 +118,3 @@ class Layout extends Component {
     </Grid>              
 </Grid>
 */
-    render() {
-
-        return (
-            <Aux>
-                <div className="workaround" style={workaround} />
-                <AppBar BarColorClass="default" appBarClass={appBar}>Proof of concept</AppBar>
-                <div style={{padding: '5px 5px 0px 5px'}}>
-                    <div class="mdc-layout-grid__inner">
-                        <div class="mdc-layout-grid__cell demo-cell mdc-layout-grid__cell--span-12-tablet">
-                            <Widget reportData={this.state.reports[0]}/>
-                        </div>
-                        <div class="mdc-layout-grid__cell demo-cell mdc-layout-grid__cell--span-12-tablet">
-                            <Widget reportData={this.state.reports[1]} />
-                        </div>
-                        <div class="mdc-layout-grid__cell demo-cell mdc-layout-grid__cell--span-12-tablet">
-                            <Widget reportData={this.state.reports[0]} />
-                        </div>
-                    </div>
-                </div>
-                <Filter selectItems={this.state.items} change={this.filterChangeHandler}/>
-            </Aux>
-        );
-    }
-
-}
-export default Layout;

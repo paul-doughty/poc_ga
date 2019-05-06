@@ -1,6 +1,6 @@
 import React from 'react';
-import Card from '@material-ui/core/Card';
 import Report from './Report/Report';
+import Aux from '../../hoc/Aus/Aus';
 
 
 const WFChart = (props) => {
@@ -10,13 +10,13 @@ const WFChart = (props) => {
     const reportParms = props.reportData.parms;
 
     return (
-        <Card raised={true} style={{minHeight:'calc(100vh - 72px)', borderRadius:'0'}}>
-            <Report
-                reportName={reportName}
-                reportApp={reportApp}
-                reportParms={reportParms}
-            />                   
-        </Card>
+            <Aux>
+                <Report
+                    reportName={reportName}
+                    reportApp={reportApp}
+                    reportParms={reportParms}
+                />   
+            </Aux>                
     );
 }
 

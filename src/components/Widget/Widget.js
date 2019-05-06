@@ -3,13 +3,24 @@
  * children of this to ensure the specific content is rendered
  */
 import React from 'react';
-import WFChart from '../WFChart/WFChart';
+import Card from '@material-ui/core/Card';
 
 
-const Widget = (props) => (
+
+const Widget = (props) => {
+
+    const widgetHeight = 'calc(' + props.height + 'vh - ' + props.adjust + 'px)';
+
+    const widgetStyle = {
+        minHeight: widgetHeight, 
+        borderRadius:'0'
+    }
+    return (
     <div style={{padding: '0.3125'}}>
-        <WFChart reportData={props.reportData}/>
+        <Card raised={true} style={widgetStyle}>
+        {props.children}
+        </Card>
     </div>
-);
+)};
 
 export default Widget;
