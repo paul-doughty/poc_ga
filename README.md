@@ -20,4 +20,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ## Deployment
 
 To adjust the deployment diractory simple access the 'package.json' and alter the homepage property:
-`./approot/a_component_library/poc_ga`.
+`./approot/a_component_library/poc_ga`, or any other name you woul prefer
